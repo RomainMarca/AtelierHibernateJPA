@@ -1,11 +1,12 @@
 package com.example.atelier_jpa_hibernate.controller;
 
-import java.awt.print.Pageable;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
-
 import com.example.atelier_jpa_hibernate.model.School;
 import com.example.atelier_jpa_hibernate.model.Student;
 import com.example.atelier_jpa_hibernate.repository.SchoolRepository;
@@ -23,8 +24,16 @@ public class StudentController {
 	@GetMapping("/scholls/{schoolId}/students")
 	public Page<Student> getAllStudentsBySchoolId(@PathVariable (value = "schoolId") Long schoolId,
 			Pageable pageable) {
-		return StudentRepository.findBySchoolId(schoolId, pageable);
-
+		return studentRepository.findBySchoolId(schoolId, pageable);
+	}
+	
+	@PostMapping("/scholls/{schoolId}/students")
+	public Student createStudent(@PathVariable (value= "schoolId") Long schoolId,
+			@Valid @RequestBody Student student) {
+		return studentRepository.findById(schoolId).map(post -> {
+			student.setSchool(school);
+			return studentRepository.save(student);
+		})
 	}
 	
 
