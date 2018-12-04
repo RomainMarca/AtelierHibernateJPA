@@ -25,6 +25,26 @@ public class School {
 		this.name = name;
 		this.adress= adress;
 	}
+
+	public Object getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getAdress() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setName(Object name2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setAdress(Object adress2) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	//Getters Setters
 

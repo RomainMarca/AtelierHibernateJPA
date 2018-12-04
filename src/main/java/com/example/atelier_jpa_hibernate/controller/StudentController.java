@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
+
 import com.example.atelier_jpa_hibernate.model.School;
 import com.example.atelier_jpa_hibernate.model.Student;
 import com.example.atelier_jpa_hibernate.repository.SchoolRepository;
